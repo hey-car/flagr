@@ -2,8 +2,7 @@ FROM golang:stretch
 
 MAINTAINER heycar Engineering <team-engineering@hey.car>
 
-ARG FLAGR_VERSION=1.0.2
-
+ARG FLAGR_VERSION=1.0.3
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -14,6 +13,7 @@ RUN curl https://github.com/checkr/flagr/archive/${FLAGR_VERSION}.tar.gz -Lo fla
 RUN tar -xzf flagr.tar.gz
 RUN mkdir -p /go/src/github.com/checkr
 RUN mv flagr-${FLAGR_VERSION} /go/src/github.com/checkr/flagr
+
 WORKDIR /go/src/github.com/checkr/flagr
 RUN cd ./browser/flagr-ui/ && yarn install && yarn run build
 RUN make build
@@ -21,6 +21,7 @@ RUN make build
 ENV FLAGR_RECORDER_ENABLED=false
 ENV HOST=0.0.0.0
 ENV PORT=7000
+
 EXPOSE 7000
 
 CMD ./flagr
