@@ -1,6 +1,6 @@
 DOCKER_BIN ?= `which docker`
 DOCKER_COMPOSE ?= `which docker-compose`
-TAG ?= "heycar/flagr:0.2.1"
+TAG ?= "heycar/flagr:0.2.2"
 
 .PHONY: build
 build:
