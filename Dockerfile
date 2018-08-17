@@ -7,11 +7,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -y yarn nodejs build-essential
 
-ARG FLAGR_VERSION=1.0.8
-RUN curl https://github.com/checkr/flagr/archive/${FLAGR_VERSION}.tar.gz -Lo flagr.tar.gz
+ARG FLAGR_VERSION=1.0.9
+RUN curl https://github.com/hey-car/flagr-fork/archive/${FLAGR_VERSION}.tar.gz -Lo flagr.tar.gz
 RUN tar -xzf flagr.tar.gz
 RUN mkdir -p /go/src/github.com/checkr
-RUN mv flagr-${FLAGR_VERSION} /go/src/github.com/checkr/flagr
+RUN mv flagr-fork-${FLAGR_VERSION} /go/src/github.com/checkr/flagr
 
 WORKDIR /go/src/github.com/checkr/flagr
 RUN cd ./browser/flagr-ui/ && yarn install && yarn run build
