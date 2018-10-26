@@ -6,7 +6,7 @@ services:
       MYSQL_DATABASE: flagr
       MYSQL_ROOT_PASSWORD: password
   flagr:
-    image: heycar/flagr:0.2.8
+    image: heycar/flagr:0.2.9
     depends_on:
       - database
     ports:
