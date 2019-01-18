@@ -14,5 +14,5 @@ services:
     environment:
       FLAGR_DB_DBDRIVER: mysql
       FLAGR_DB_DBCONNECTIONSTR: "root:password@tcp(database:3306)/flagr?parseTime=true"
-    command: > 
+    command: >
       bash -c "sleep 5 && ./flagr"
